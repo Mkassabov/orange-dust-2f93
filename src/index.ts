@@ -11,8 +11,11 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+import { Effect } from "effect";
+
 export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+	fetch(request, env, ctx): Promise<Response> {
+		// return new Response('Hello World!');
+		return Effect.runPromise(Effect.succeed(new Response("Hello World!")));
 	},
 } satisfies ExportedHandler<Env>;
