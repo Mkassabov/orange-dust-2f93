@@ -11,11 +11,13 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-import { Effect } from "effect";
+// import { Effect } from "effect";
+
+const test = new AbortController();
 
 export default {
 	fetch(request, env, ctx): Promise<Response> {
-		// return new Response('Hello World!');
-		return Effect.runPromise(Effect.succeed(new Response("Hello World!")));
+		return new Response("Hello World!");
+		// return Effect.runPromise(Effect.succeed(new Response("Hello World!")));
 	},
 } satisfies ExportedHandler<Env>;
